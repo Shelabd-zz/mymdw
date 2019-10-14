@@ -1,0 +1,94 @@
+{
+	"name": "CopyPipeline_e9s",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_e9s",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "logdata1//log-file.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.emp"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "content",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Cont",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastName",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_e9s",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_e9s",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

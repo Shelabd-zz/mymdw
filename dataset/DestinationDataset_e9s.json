@@ -1,0 +1,35 @@
+{
+	"name": "DestinationDataset_e9s",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10,
+				"scale": 255
+			},
+			{
+				"name": "Cont",
+				"type": "varchar",
+				"precision": 255,
+				"scale": 255
+			},
+			{
+				"name": "LastName",
+				"type": "varchar",
+				"precision": 255,
+				"scale": 255
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp"
+		}
+	}
+}
