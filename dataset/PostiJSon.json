@@ -1,0 +1,386 @@
+{
+	"name": "PostiJSon",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LogStorageAccount",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "postidata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"table": {
+					"type": "string"
+				},
+				"op_type": {
+					"type": "string"
+				},
+				"op_ts": {
+					"type": "string"
+				},
+				"current_ts": {
+					"type": "string"
+				},
+				"pos": {
+					"type": "string"
+				},
+				"primary_keys": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"tokens": {
+					"type": "object",
+					"properties": {
+						"txid": {
+							"type": "string"
+						},
+						"csn": {
+							"type": "string"
+						}
+					}
+				},
+				"before": {
+					"type": "null"
+				},
+				"after": {
+					"type": "object",
+					"properties": {
+						"SHIPMENT_SEQ": {
+							"type": "integer"
+						},
+						"PROCSTAMP": {
+							"type": "integer"
+						},
+						"INSERTED": {
+							"type": "string"
+						},
+						"UPDATED": {
+							"type": "string"
+						},
+						"OBSERVATION_TIME": {
+							"type": "string"
+						},
+						"MODIFIER": {
+							"type": "string"
+						},
+						"CREATOR": {
+							"type": "string"
+						},
+						"PRODUCT": {
+							"type": "string"
+						},
+						"SHIPMENT_TYPE": {
+							"type": "string"
+						},
+						"SHIPMENT_CLASS": {
+							"type": "string"
+						},
+						"SHIPMENT_STATE_BITMAP": {
+							"type": "integer"
+						},
+						"TRACKINGCODE": {
+							"type": "string"
+						},
+						"TRACKINGCODE2": {
+							"type": "null"
+						},
+						"LAST_COLLECTION_DATE": {
+							"type": "null"
+						},
+						"ESTIMATE_TIME": {
+							"type": "null"
+						},
+						"SENDER_AGREEMENT": {
+							"type": "null"
+						},
+						"PAYER_AGREEMENT": {
+							"type": "null"
+						},
+						"RECEIVER_AGREEMENT": {
+							"type": "null"
+						},
+						"DEPARTURE_COUNTRY": {
+							"type": "null"
+						},
+						"DEPARTURE_POSTAL_CODE": {
+							"type": "null"
+						},
+						"DESTINATION_COUNTRY": {
+							"type": "null"
+						},
+						"DESTINATION_POSTAL_CODE": {
+							"type": "string"
+						},
+						"INFOCODE": {
+							"type": "null"
+						},
+						"INVOICING_CHANNEL": {
+							"type": "null"
+						},
+						"PAYMENT_METHOD": {
+							"type": "null"
+						},
+						"FREIGHT_TERMS_LOCATION": {
+							"type": "null"
+						},
+						"NEWEXPEDITIONCODE": {
+							"type": "null"
+						},
+						"DEPARTURE_SORTING": {
+							"type": "string"
+						},
+						"CONTAINER_TYPE": {
+							"type": "null"
+						},
+						"ORIG_DESTINATION_POSTAL_CODE": {
+							"type": "null"
+						},
+						"E_ARCHIVE_SEQ": {
+							"type": "null"
+						},
+						"INVOICEREFERENCE": {
+							"type": "null"
+						},
+						"EDI_REFERENCE": {
+							"type": "null"
+						},
+						"EDI_SENDERCODE": {
+							"type": "null"
+						},
+						"ORDERNUMBER": {
+							"type": "null"
+						},
+						"SAP_MATERIAL_ID": {
+							"type": "null"
+						},
+						"PARCEL_COUNT": {
+							"type": "null"
+						},
+						"ERRAND_CODE": {
+							"type": "null"
+						},
+						"SENDER_POSTAL_CODE_CREATED_BY": {
+							"type": "null"
+						},
+						"NOTES": {
+							"type": "null"
+						},
+						"BUILDUO_AREA": {
+							"type": "null"
+						},
+						"SERVICE_REQUIREMENT": {
+							"type": "null"
+						},
+						"COMPANY": {
+							"type": "null"
+						},
+						"FREIGHT_CHARGES_TYPE": {
+							"type": "null"
+						},
+						"FOREIGN_PRODUCT": {
+							"type": "null"
+						},
+						"TRANSPORTATION_WAGE": {
+							"type": "null"
+						},
+						"TRANSPORTATION_WAGE_CURRENCY": {
+							"type": "null"
+						},
+						"CASH_PAYMENT_AMOUNT": {
+							"type": "null"
+						},
+						"CASH_PAYMENT_CURRENCY": {
+							"type": "null"
+						},
+						"COD_AMOUNT": {
+							"type": "null"
+						},
+						"COD_CURRENCY": {
+							"type": "null"
+						},
+						"COD_REFERENCE": {
+							"type": "null"
+						},
+						"COD_ACCOUNT": {
+							"type": "null"
+						},
+						"BIC": {
+							"type": "null"
+						},
+						"LABEL_LAYOUT_CODE": {
+							"type": "null"
+						},
+						"ORIG_SYSTEM_CREATEDDATETIME": {
+							"type": "null"
+						},
+						"AGREED_PICKUP_TIME": {
+							"type": "null"
+						},
+						"PICKUP_TIME": {
+							"type": "null"
+						},
+						"EARLIEST_PICKUP_TIME": {
+							"type": "null"
+						},
+						"LATEST_PICKUP_TIME": {
+							"type": "null"
+						},
+						"AGREED_DELIVERY_TIME": {
+							"type": "null"
+						},
+						"DELIVERY_TIME": {
+							"type": "null"
+						},
+						"EARLIEST_DELIVERY_TIME": {
+							"type": "null"
+						},
+						"LATEST_DELIVERY_TIME": {
+							"type": "null"
+						},
+						"SENDING_TIME": {
+							"type": "null"
+						},
+						"ADVISING_TIME": {
+							"type": "null"
+						},
+						"LOADING_TIME": {
+							"type": "null"
+						},
+						"STORAGE_PLACE": {
+							"type": "null"
+						},
+						"LOADING_ORDER": {
+							"type": "null"
+						},
+						"TERMS_OF_DELIVERY_CODE": {
+							"type": "null"
+						},
+						"TERMS_OF_DELIVERY_RELEASE": {
+							"type": "null"
+						},
+						"TERMS_OF_DELIVERY_DESCRIPTION": {
+							"type": "null"
+						},
+						"TERMS_OF_DELIVERY_LOCATION": {
+							"type": "null"
+						},
+						"MPI_MASTER": {
+							"type": "null"
+						},
+						"APPLICATION_2D": {
+							"type": "string"
+						},
+						"ISALIST_2D": {
+							"type": "integer"
+						},
+						"ISALINE_2D": {
+							"type": "integer"
+						},
+						"SHIPMENT_ID_2D": {
+							"type": "string"
+						},
+						"DESTINATION_POSTAL_CODE_2D": {
+							"type": "string"
+						},
+						"PARAMETER_2D": {
+							"type": "string"
+						},
+						"COUNT_2D": {
+							"type": "integer"
+						},
+						"PRODUCT_2D": {
+							"type": "string"
+						},
+						"ADDRESSID_2D": {
+							"type": "string"
+						},
+						"RAW2D": {
+							"type": "string"
+						},
+						"INVOICED_CUSTOMER": {
+							"type": "string"
+						},
+						"INSURANCE_VALUE": {
+							"type": "null"
+						},
+						"INSURANCE_CURRENCY": {
+							"type": "null"
+						},
+						"NUMBER_OF_CARGOLINES": {
+							"type": "null"
+						},
+						"ON_HOLD": {
+							"type": "null"
+						},
+						"LQ_QUANTITY": {
+							"type": "null"
+						},
+						"URL": {
+							"type": "null"
+						},
+						"ROUTING_CODE": {
+							"type": "null"
+						},
+						"EXT_LABEL_COD_INFO": {
+							"type": "null"
+						},
+						"HANDLING_CODE": {
+							"type": "null"
+						},
+						"EXT_TRANSPORT_UNIT_REF": {
+							"type": "null"
+						},
+						"EXT_EQUIPMENT_FLEET_NUMBER": {
+							"type": "null"
+						},
+						"EXT_EQUIPMENT_LICENSE_PLATE": {
+							"type": "null"
+						},
+						"EXT_PRODUCT_CODE": {
+							"type": "null"
+						},
+						"EXT_ROUTING_CODE": {
+							"type": "null"
+						},
+						"EXT_SENDER_REF": {
+							"type": "null"
+						},
+						"EXT_TERMINAL_GUIDE": {
+							"type": "null"
+						},
+						"LAST_MSG_TIMESTAMP": {
+							"type": "null"
+						},
+						"URL_SHORT": {
+							"type": "null"
+						},
+						"EPOD_URL": {
+							"type": "null"
+						},
+						"EPOD_URL_SHORT": {
+							"type": "null"
+						},
+						"MAILINGBATCH_ID": {
+							"type": "string"
+						},
+						"FREIGHT_WEIGHT": {
+							"type": "null"
+						},
+						"SCN_BITMAP": {
+							"type": "null"
+						}
+					}
+				}
+			}
+		}
+	}
+}

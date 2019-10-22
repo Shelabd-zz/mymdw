@@ -1,0 +1,32 @@
+{
+	"name": "RemoveWrapper",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "PostiJSon",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "WrapperlessJson",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "RemoveWrapper"
+				}
+			],
+			"script": "\nparameters{\n\tafter as string\n}\nsource(output(\n\t\ttable as string,\n\t\top_type as string,\n\t\top_ts as string,\n\t\tcurrent_ts as string,\n\t\tpos as string,\n\t\tprimary_keys as string[],\n\t\ttokens as (txid as string, csn as string),\n\t\tbefore as string,\n\t\tafter as (SHIPMENT_SEQ as string, PROCSTAMP as string, INSERTED as string, UPDATED as string, OBSERVATION_TIME as string, MODIFIER as string, CREATOR as string, PRODUCT as string, SHIPMENT_TYPE as string, SHIPMENT_CLASS as string, SHIPMENT_STATE_BITMAP as string, TRACKINGCODE as string, TRACKINGCODE2 as string, LAST_COLLECTION_DATE as string, ESTIMATE_TIME as string, SENDER_AGREEMENT as string, PAYER_AGREEMENT as string, RECEIVER_AGREEMENT as string, DEPARTURE_COUNTRY as string, DEPARTURE_POSTAL_CODE as string, DESTINATION_COUNTRY as string, DESTINATION_POSTAL_CODE as string, INFOCODE as string, INVOICING_CHANNEL as string, PAYMENT_METHOD as string, FREIGHT_TERMS_LOCATION as string, NEWEXPEDITIONCODE as string, DEPARTURE_SORTING as string, CONTAINER_TYPE as string, ORIG_DESTINATION_POSTAL_CODE as string, E_ARCHIVE_SEQ as string, INVOICEREFERENCE as string, EDI_REFERENCE as string, EDI_SENDERCODE as string, ORDERNUMBER as string, SAP_MATERIAL_ID as string, PARCEL_COUNT as string, ERRAND_CODE as string, SENDER_POSTAL_CODE_CREATED_BY as string, NOTES as string, BUILDUO_AREA as string, SERVICE_REQUIREMENT as string, COMPANY as string, FREIGHT_CHARGES_TYPE as string, FOREIGN_PRODUCT as string, TRANSPORTATION_WAGE as string, TRANSPORTATION_WAGE_CURRENCY as string, CASH_PAYMENT_AMOUNT as string, CASH_PAYMENT_CURRENCY as string, COD_AMOUNT as string, COD_CURRENCY as string, COD_REFERENCE as string, COD_ACCOUNT as string, BIC as string, LABEL_LAYOUT_CODE as string, ORIG_SYSTEM_CREATEDDATETIME as string, AGREED_PICKUP_TIME as string, PICKUP_TIME as string, EARLIEST_PICKUP_TIME as string, LATEST_PICKUP_TIME as string, AGREED_DELIVERY_TIME as string, DELIVERY_TIME as string, EARLIEST_DELIVERY_TIME as string, LATEST_DELIVERY_TIME as string, SENDING_TIME as string, ADVISING_TIME as string, LOADING_TIME as string, STORAGE_PLACE as string, LOADING_ORDER as string, TERMS_OF_DELIVERY_CODE as string, TERMS_OF_DELIVERY_RELEASE as string, TERMS_OF_DELIVERY_DESCRIPTION as string, TERMS_OF_DELIVERY_LOCATION as string, MPI_MASTER as string, APPLICATION_2D as string, ISALIST_2D as string, ISALINE_2D as string, SHIPMENT_ID_2D as string, DESTINATION_POSTAL_CODE_2D as string, PARAMETER_2D as string, COUNT_2D as string, PRODUCT_2D as string, ADDRESSID_2D as string, RAW2D as string, INVOICED_CUSTOMER as string, INSURANCE_VALUE as string, INSURANCE_CURRENCY as string, NUMBER_OF_CARGOLINES as string, ON_HOLD as string, LQ_QUANTITY as string, URL as string, ROUTING_CODE as string, EXT_LABEL_COD_INFO as string, HANDLING_CODE as string, EXT_TRANSPORT_UNIT_REF as string, EXT_EQUIPMENT_FLEET_NUMBER as string, EXT_EQUIPMENT_LICENSE_PLATE as string, EXT_PRODUCT_CODE as string, EXT_ROUTING_CODE as string, EXT_SENDER_REF as string, EXT_TERMINAL_GUIDE as string, LAST_MSG_TIMESTAMP as string, URL_SHORT as string, EPOD_URL as string, EPOD_URL_SHORT as string, MAILINGBATCH_ID as string, FREIGHT_WEIGHT as string, SCN_BITMAP as string)\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true) ~> source1\nsource1 select(mapColumn(\n\t\ttable,\n\t\top_type,\n\t\top_ts,\n\t\tcurrent_ts,\n\t\tpos,\n\t\tprimary_keys,\n\t\ttokens,\n\t\tbefore,\n\t\tafter\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> RemoveWrapper\nRemoveWrapper sink(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> sink1"
+		}
+	}
+}
